@@ -1,10 +1,23 @@
 class Solution {
 public:
     void sortColors(vector<int>& nums) {
-        sort(nums.begin(),nums.end());
-        for(int x=0;x<=nums.size()-1;x++)
+        vector<int> count(3,0);
+        int size=nums.size();
+        for(int x=0;x<size;x++)
         {
-            cout<<nums.at(x);
+            count[nums[x]]++;
         }
+        int index=0;
+        for(int x=0;x<3;x++)
+        {
+            while(count[x]--)
+            {
+                nums[index++]=x;
+            }
+        }
+        // for(int x=0;x<3;x++)
+        // {
+        //     cout<<count[x];
+        // }
     }
 };
