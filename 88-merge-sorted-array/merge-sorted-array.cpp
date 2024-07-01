@@ -1,29 +1,26 @@
 class Solution {
 public:
     void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
-        int l1=m-1,l2=n-1,p=(n+m)-1,t=p;
-       while(l1>=0&&l2>=0)
-       {
-           if(nums1[l1]>=nums2[l2])
-            {
-                nums1[p--]=nums1[l1--];
+        int i = m - 1;
+        int j = 0;
+        
+        while (i >= 0 && j < n) {
+            if (nums1[i] > nums2[j]) {
+                swap(nums1[i], nums2[j]);
+                i--;
+                j++;
+            } else {
+                break;
             }
-            else
-            {
-                nums1[p--]=nums2[l2--];
-            }
-       }
-       while(l1>=0)
-       {
-           nums1[p--]=nums1[l1--];
-       }
-       while(l2>=0)
-       {
-           nums1[p--]=nums2[l2--];
-       }
-        for(int x=0;x<=t;x++)
-        {
-            cout<<nums1[x]<<" ";
+        }
+        
+        // Sort nums1 and nums2 after swapping
+        sort(nums1.begin(), nums1.begin() + m);
+        sort(nums2.begin(), nums2.end());
+        
+        // Merge nums2 into nums1
+        for (int k = 0; k < n; k++) {
+            nums1[m + k] = nums2[k];
         }
     }
 };
