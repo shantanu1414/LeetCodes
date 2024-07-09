@@ -20,13 +20,6 @@ public:
                 
             }
 
-
-
-
-
-
-
-
             // if(target>=matrix[x][0] && target<=matrix[x][n-1])
             // {
             //     for(int y=0;y<n;y++)
