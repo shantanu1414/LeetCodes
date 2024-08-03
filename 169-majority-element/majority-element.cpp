@@ -19,6 +19,15 @@ public:
                 cnt--;
             }
         }
-        return el;
+        int cnt1 = 0;
+        for(int x=0;x<nums.size();x++)
+        {
+            if(nums[x] == el) cnt1++;
+        }
+        if(cnt1>nums.size()/2)
+            return el;
+
+        else
+            return -1;
     }
 };
