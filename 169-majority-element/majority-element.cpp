@@ -1,17 +1,24 @@
 class Solution {
-    //Moores voting algorithm
 public:
     int majorityElement(vector<int>& nums) {
-        int c=0,e=0;
-        for(auto n:nums)
+        int el=0;
+        int cnt=0;
+        for(int x=0;x<nums.size();x++)
         {
-            if(c==0)
+            if(cnt==0)
             {
-                e=n;
+                el=nums[x];
+                cnt=1;
             }
-            if(e==n)c++;
-            else c--;
+            else if(nums[x]==el)
+            {
+                cnt++;
+            }
+            else
+            {
+                cnt--;
+            }
         }
-        return e;
+        return el;
     }
 };
